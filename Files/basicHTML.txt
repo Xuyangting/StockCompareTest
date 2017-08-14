@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test Report</title>
+    <script>
+       function show_data(index){
+           document.getElementById("my_table_detail_" + index).style.display = "none";
+           document.getElementById("my_table").style.display = "table";
+       }
+       function show_data_detail(index){
+           document.getElementById("my_table").style.display = "none";
+           document.getElementById("my_table_detail_" + index).style.display = "table";
+       }
+       function openShutManager(oSourceObj,oTargetObj,shutAble,oOpenTip,oShutTip){
+           var sourceObj = typeof oSourceObj == "string" ? document.getElementById(oSourceObj) : oSourceObj;
+           var targetObj = typeof oTargetObj == "string" ? document.getElementById(oTargetObj) : oTargetObj;
+           var openTip = oOpenTip || "";
+           var shutTip = oShutTip || "";
+           if(targetObj.style.display!="none"){
+               if(shutAble) return;
+               targetObj.style.display="none";
+               if(openTip  &&  shutTip){
+                   sourceObj.innerHTML = shutTip;
+               }
+           } else {
+               targetObj.style.display="block";
+               if(openTip  &&  shutTip){
+                   sourceObj.innerHTML = openTip;
+                }
+           }
+       }
+    </script>
+    <style type="text/css">
+       body{ text-align:center }
+       .my_title {background:#ccc;width: 90%;margin: 0 auto}
+       .my_table {
+           width: 100%;
+           border-collapse:collapse;
+           border-spacing:0;
+           border-left:1px solid #888;
+           border-top:1px solid #888;
+           background:#efefef;
+       }
+       .my_table_detail {
+           width: 100%; border-collapse:collapse;
+           border-spacing:0;border-left:1px solid #888;
+           border-top:1px solid #888;background:#efefef;
+           display:none;
+       }
+       tbody {width: 100%;}
+       th,td{border-right:1px solid #888;border-bottom:1px solid #888;padding:5px 15px;text-align:left;}
+       th{font-weight:bold;background:#ccc;}
+       .my_data {width: 90%;margin: 0 auto;margin-top:2%}
+   </style>
+</head>
+
